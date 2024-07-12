@@ -1,0 +1,30 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.9.23'
+    id("application")
+}
+
+group = 'org.vikl5'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+    implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation("com.slack.api:bolt-jetty:1.40.2")
+    implementation("org.slf4j:slf4j-simple:1.7.36")
+}
+
+application {
+    mainClassName = "org.vikl5.WhenTakenKt"
+}
+
+test {
+    useJUnitPlatform()
+}
+kotlin {
+    jvmToolchain(20)
+}

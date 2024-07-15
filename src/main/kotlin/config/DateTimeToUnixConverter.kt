@@ -6,10 +6,11 @@ import org.slf4j.LoggerFactory
 import java.time.LocalDate
 
 class DateTimeToUnixConverter {
-    private val logger = LoggerFactory.getLogger("my-awesome-slack-app")
 
+    private val logger = LoggerFactory.getLogger("my-awesome-slack-app")
     private val timeZone = TimeZone.of("Europe/Oslo")
     private val today = Clock.System.todayIn(timeZone)
+
     fun unixTimeStampForPostingMessages(): Instant {
         val startPosting = today.atTime(20, 5).toInstant(timeZone)
         logger.info("Today's start posting date is: $startPosting")

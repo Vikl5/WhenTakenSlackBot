@@ -33,11 +33,15 @@ class ScheduleMessage {
     }
 
     private fun buildMessageText(userScores: List<UserScore>): String {
-        val topScores = userScores.joinToString("\n") { userScore ->
-            "User: ${userScore.username}, Score: ${userScore.score}/1000"
+        val topScores = userScores.withIndex().joinToString("\n") { (index, userScore) ->
+            "${index + 1}. ${userScore.username}, Score: ${userScore.score}/1000"
         }
         val highestScoreUserId = userScores.firstOrNull()?.userId?.let { "<@$it>" } ?: "No user"
-        return "Top Scores:\n$topScores\n\nCongratulations to the top scorer: $highestScoreUserId!"
+        return """The highscore for today is here!!:star-struck: Thank you all for participating!:sparkles: :earth_africa: 
+            |Top Scores:
+            |$topScores
+            |
+            |:flowersmile:Congratulations to the top scorer of today: $highestScoreUserId! :tada: :tada: """.trimMargin()
     }
 
 }

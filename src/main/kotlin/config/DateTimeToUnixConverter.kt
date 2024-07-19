@@ -10,7 +10,7 @@ class DateTimeToUnixConverter {
     private val today = Clock.System.todayIn(timeZone)
 
     fun unixTimeStampForPostingMessages(): Instant {
-        val startPosting = today.atTime(10, 13).toInstant(timeZone)
+        val startPosting = today.atTime(11, 55).toInstant(timeZone)
         logger.info("Today's start posting date is: $startPosting")
         return startPosting
     }

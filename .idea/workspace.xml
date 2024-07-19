@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a212a6ac-6bc2-4fa8-a82a-7aae12749fa0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/config/DateTimeToUnixConverter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/config/DateTimeToUnixConverter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/config/SlackConnectionInfo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/config/SlackConnectionInfo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/scheduler/ScheduleJob.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/scheduler/ScheduleJob.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/scheduler/ScheduleMessage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/scheduler/ScheduleMessage.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +45,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin Class" />
+        <option value="Kotlin Data Class" />
       </list>
     </option>
   </component>
@@ -94,11 +100,13 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Gradle.Build WhenTakenSlackBot.executor&quot;: &quot;Run&quot;,
-    &quot;Kotlin.WhenTakenKt.executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin.WhenTakenKt.executor&quot;: &quot;Debug&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RecentsManager">

@@ -14,7 +14,7 @@ class ScheduleJob {
             .build()
         val trigger = TriggerBuilder.newTrigger()
             .withIdentity("dailyTrigger", "grp1")
-            .withSchedule(CronScheduleBuilder.dailyAtHourAndMinute(19,49))
+            .withSchedule(CronScheduleBuilder.dailyAtHourAndMinute(10, 11))
             .build()
         val scheduler = StdSchedulerFactory.getDefaultScheduler()
         scheduler.start()

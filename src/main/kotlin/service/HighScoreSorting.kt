@@ -1,8 +1,10 @@
 package org.vikl5.service
 
-class HighScoreCalculation {
+import org.vikl5.util.UserScore
 
-    fun countHighScore(scoreBoard: Map<String, String>) {
-        val highScoreOfTheDay = scoreBoard.sor
+class HighScoreSorting {
+
+    fun sortHighScore(userScores: List<UserScore>): List<UserScore> {
+        return userScores.sortedByDescending { it.score }
     }
 }

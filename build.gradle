@@ -37,6 +37,6 @@ test {
 kotlin {
     jvmToolchain(20)
 }
-task stage {
-    dependsOn build
+tasks.register('stage') {
+    dependsOn clean, build
 }

@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a212a6ac-6bc2-4fa8-a82a-7aae12749fa0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
@@ -58,6 +56,10 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
+                    <option name="branchName" value="fix/build2" />
+                    <option name="lastUsedInstant" value="1721567089" />
+                  </RecentBranch>
+                  <RecentBranch>
                     <option name="branchName" value="main" />
                     <option name="lastUsedInstant" value="1721564032" />
                   </RecentBranch>
@@ -72,10 +74,6 @@
                   <RecentBranch>
                     <option name="branchName" value="fix/environmentvars" />
                     <option name="lastUsedInstant" value="1721379003" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="feature/readmessages" />
-                    <option name="lastUsedInstant" value="1720980368" />
                   </RecentBranch>
                 </list>
               </option>
@@ -98,21 +96,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.Build WhenTakenSlackBot.executor": "Run",
-    "Kotlin.WhenTakenKt.executor": "Debug",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "kotlin-language-version-configured": "true",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Build WhenTakenSlackBot.executor&quot;: &quot;Run&quot;,
+    &quot;Kotlin.WhenTakenKt.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="service" />
@@ -136,5 +134,41 @@
       <updated>1720778334900</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="5d174802-3708-4ea9-b117-6bd727c1d088" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="5d174802-3708-4ea9-b117-6bd727c1d088">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

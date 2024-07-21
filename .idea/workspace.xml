@@ -53,8 +53,12 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
+                    <option name="branchName" value="fix/build2" />
+                    <option name="lastUsedInstant" value="1721567089" />
+                  </RecentBranch>
+                  <RecentBranch>
                     <option name="branchName" value="main" />
-                    <option name="lastUsedInstant" value="1721564032" />
+                    <option name="lastUsedInstant" value="1721566660" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="fix/timestamps" />
@@ -67,10 +71,6 @@
                   <RecentBranch>
                     <option name="branchName" value="fix/environmentvars" />
                     <option name="lastUsedInstant" value="1721379003" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="feature/readmessages" />
-                    <option name="lastUsedInstant" value="1720980368" />
                   </RecentBranch>
                 </list>
               </option>
@@ -131,5 +131,41 @@
       <updated>1720778334900</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="5d174802-3708-4ea9-b117-6bd727c1d088" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="5d174802-3708-4ea9-b117-6bd727c1d088">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

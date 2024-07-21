@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/config/DateTimeToUnixConverter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/config/DateTimeToUnixConverter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/scheduler/ScheduleJob.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/scheduler/ScheduleJob.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/scheduler/ScheduleMessage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/scheduler/ScheduleMessage.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +41,7 @@
       <list>
         <option value="Kotlin Class" />
         <option value="Kotlin Data Class" />
+        <option value="Dockerfile" />
       </list>
     </option>
   </component>

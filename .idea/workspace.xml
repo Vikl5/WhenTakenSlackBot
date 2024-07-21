@@ -56,6 +56,10 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
+                    <option name="branchName" value="fix/gradlesettings" />
+                    <option name="lastUsedInstant" value="1721571500" />
+                  </RecentBranch>
+                  <RecentBranch>
                     <option name="branchName" value="fix/build2" />
                     <option name="lastUsedInstant" value="1721567089" />
                   </RecentBranch>
@@ -70,10 +74,6 @@
                   <RecentBranch>
                     <option name="branchName" value="fix/dependencies" />
                     <option name="lastUsedInstant" value="1721379361" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="fix/environmentvars" />
-                    <option name="lastUsedInstant" value="1721379003" />
                   </RecentBranch>
                 </list>
               </option>

@@ -37,6 +37,8 @@ test {
 kotlin {
     jvmToolchain(20)
 }
-tasks.register('stage') {
-    dependsOn ("installDist")
+task stage(type: Copy) {
+    from(buildDir) // Source directory containing built artifacts
+    into('dist')    // Destination directory for deployment package
+    include '**/*.jar' // Pattern to match your project's JAR file(s)
 }

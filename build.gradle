@@ -37,3 +37,6 @@ test {
 kotlin {
     jvmToolchain(20)
 }
+task stage {
+    dependsOn build
+}

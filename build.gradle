@@ -38,5 +38,5 @@ kotlin {
     jvmToolchain(20)
 }
 tasks.register('stage') {
-    dependsOn ("installDist")
+    dependsOn clean, build
 }

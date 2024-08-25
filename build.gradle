@@ -1,5 +1,6 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.9.23'
+    id("io.ktor.plugin") version "2.3.12"
     id("application")
 }
 
@@ -22,8 +23,15 @@ dependencies {
 
 }
 
+
 application {
-    mainClassName = "org.vikl5.WhenTakenKt"
+    mainClass.set("org.vikl5.WhenTakenKt")
+}
+
+ktor {
+    fatJar {
+        archiveFileName.set("WhenTakenSlackBot-1.0-SNAPSHOT.jar")
+    }
 }
 
 run {
@@ -35,5 +43,5 @@ test {
     useJUnitPlatform()
 }
 kotlin {
-    jvmToolchain(20)
+    jvmToolchain(21)
 }

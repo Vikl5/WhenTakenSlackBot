@@ -1,25 +1,16 @@
-# Build stage
-#FROM gradle:8.8.0-jdk22-alpine AS build
-FROM openjdk:21
+# Ktor docs for Dockerfile: https://ktor.io/docs/docker.html#prepare-docker
+# Stage 1: Build the application
+FROM gradle:8.8.0-jdk21 AS build
+ENV TZ=Europe/Paris
+#RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 WORKDIR /app
+COPY --chown=gradle:gradle . /app
+RUN gradle buildFatJar --no-daemon
 
-# Copy all required files
-#COPY build.gradle settings.gradle gradlew gradle /app/
-#COPY gradle /app/gradle
-#COPY src /app/src
-COPY build/libs/WhenTakenSlackBot-1.0-SNAPSHOT.jar app.jar
-
-#RUN ls -la /app
-#RUN pwd
-# Build the project
-#RUN ./gradlew build
-
-# Runtime stage
-#FROM openjdk:22
-
-#WORKDIR app
-
-# Copy the JAR from the build stage
-#COPY --from=build /app/build/libs/WhenTakenSlackBot-1.0-SNAPSHOT.jar app.jar
-
+# Stage 2: Create a lightweight image to run the application
+FROM openjdk:21-jdk-slim
+ENV TZ=Europe/Paris
+#RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+WORKDIR /app
+COPY --from=build /app/build/libs/WhenTakenSlackBot-1.0-SNAPSHOT.jar app.jar
 ENTRYPOINT ["java", "-jar", "app.jar"]

@@ -78,6 +78,12 @@ class ChannelHistory {
 
     private fun fetchUsername(userId: String): String {
         val userInfo = slackConnectionInfo.client.methods(slackConnectionInfo.token).usersInfo { r -> r.user(userId) }
-        return userInfo.user.realName
+        val realName = userInfo.user.profile.realName ?: "Unknown User"
+        if (realName == "Unknown User") {
+            logger.error("Error response: {}", userInfo)
+        } else {
+            logger.info("Names fetched 200 OK")
+        }
+        return realName
     }
 }

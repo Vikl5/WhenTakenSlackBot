@@ -24,7 +24,12 @@ class ScheduleMessage {
                     .text(text)
                     .postAt(timeToPost)
             }
-            logger.info("The bot is posting this message: {}", postMessage.message.text)
+            if (postMessage.message != null) {
+                logger.info("The bot is posting this message: {}", postMessage.message.text)
+            } else {
+                logger.error("Scheduled message is null. Full response: {}", postMessage)
+            }
+
         } catch (e: IOException) {
             logger.error("error: {}", e.message, e)
         } catch (e: SlackApiException) {

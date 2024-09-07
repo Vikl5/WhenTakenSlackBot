@@ -1,6 +1,6 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.9.23'
-    id("io.ktor.plugin") version "2.3.12"
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
     id("application")
 }
 
@@ -28,10 +28,36 @@ application {
     mainClass.set("org.vikl5.WhenTakenKt")
 }
 
-ktor {
-    fatJar {
-        archiveFileName.set("WhenTakenSlackBot-1.0-SNAPSHOT.jar")
+tasks.named('shadowJar') {
+    archiveBaseName.set('WhenTakenSlackBot')
+    archiveClassifier.set('')
+    archiveVersion.set('1.0-SNAPSHOT')
+    mergeServiceFiles()
+    manifest {
+        attributes 'Main-Class': 'org.vikl5.WhenTakenKt'
     }
+}
+
+tasks.named('build') {
+    dependsOn tasks.named('shadowJar')
+}
+
+// Disable the standard jar task
+tasks.named('jar') {
+    enabled = false
+}
+
+// Make distribution tasks depend on shadowJar
+tasks.named('distTar') {
+    dependsOn tasks.named('shadowJar')
+}
+
+tasks.named('distZip') {
+    dependsOn tasks.named('shadowJar')
+}
+
+tasks.named('startScripts') {
+    dependsOn tasks.named('shadowJar')
 }
 
 run {

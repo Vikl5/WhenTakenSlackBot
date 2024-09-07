@@ -5,7 +5,7 @@ ENV TZ=Europe/Paris
 #RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 WORKDIR /app
 COPY --chown=gradle:gradle . /app
-RUN gradle buildFatJar --no-daemon
+RUN gradle shadowJar --no-daemon
 
 # Stage 2: Create a lightweight image to run the application
 FROM openjdk:21-jdk-slim

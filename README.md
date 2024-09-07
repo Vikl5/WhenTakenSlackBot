@@ -27,8 +27,9 @@ To get a local copy up and running follow these steps.
     export SLACK_BOT_TOKEN=YOUR_TOKEN_HERE
     ```
     You can find your slack bot token [here](https://api.slack.com/apps/) and inside under OAuth & Permissions is your token.
-3. Run the project
+3. Build and run the project
    ```sh
+   gradle build
    gradle run
    ```
      

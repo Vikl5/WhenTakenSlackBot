@@ -2,6 +2,7 @@ package org.vikl5.service
 
 import com.slack.api.methods.SlackApiException
 import com.slack.api.methods.response.conversations.ConversationsHistoryResponse
+import com.slack.api.methods.response.conversations.ConversationsRepliesResponse
 import com.slack.api.model.Message
 import org.slf4j.LoggerFactory
 import org.vikl5.config.DateTimeToUnixConverter
@@ -25,18 +26,31 @@ class ChannelHistory {
         logger.info("Value of stopRead is: $stopRead")
         logger.info("-----------------------------------")
 
+        findMessagesInChannel(stopRead, startRead)
+    }
+
+    private fun findMessagesInChannel(stopRead: String, startRead: String) {
         try {
-            val readMessage = slackConnectionInfo.client.methods(slackConnectionInfo.token).conversationsHistory { r ->
+            val readMessages = slackConnectionInfo.client.methods(slackConnectionInfo.token).conversationsHistory { r ->
                 r
                     .channel(slackConnectionInfo.channelId)
                     .latest(stopRead)
                     .oldest(startRead)
             }
-            logger.info("Messages retrieved: ${readMessage.messages.size}")
-            readMessage.messages.forEach { message ->
-                logger.info("Message: ${message.text}")
+            val allMessages = readMessages.messages.toMutableList()
+            val threadedMessages = readMessages.messages.filter { it.threadTs != null }
+            threadedMessages.forEach { threadedMessage ->
+                val readThreads = slackConnectionInfo.client.methods(slackConnectionInfo.token).conversationsReplies { r ->
+                    r
+                        .channel(slackConnectionInfo.channelId)
+                        .ts(threadedMessage.ts)
+                }
+                allMessages.addAll(readThreads.messages)
+
             }
-            userScores = filterMessages(readMessage)
+            logger.info("Messages retrieved: ${readMessages.messages.size}")
+
+            userScores = filterMessages(allMessages)
 
 
         } catch (e: IOException) {
@@ -46,23 +60,31 @@ class ChannelHistory {
         }
     }
 
-    private fun filterMessages(messageHistory: ConversationsHistoryResponse): List<UserScore> {
+    private fun filterMessages(messages: List<Message>): List<UserScore> {
         logger.info("The filterMessages() function has been invoked")
-        val messagesFromResponse = messageHistory.messages.filter { it.isValidMessage() }
-        logger.info("Filtered messages count: ${messagesFromResponse.size}")
-        val scoreRegex = """I scored (\d+)/1000""".toRegex()
-        val userScores = mutableListOf<UserScore>()
 
-        messagesFromResponse.forEach { message ->
+        val filteredMessages = messages.filter { it.isValidMessage() }
+        logger.info("Filtered messages count: ${filteredMessages.size}")
+        val scoreRegex = """I scored (\d+)/1000""".toRegex()
+        val userScoresMap = mutableMapOf<String, UserScore>()
+
+        filteredMessages.forEach { message ->
             scoreRegex.find(message.text)?.let { matchResult ->
                 val score = matchResult.groups[1]?.value?.toInt()
                 if (score != null) {
                     val userId = message.user
                     val username = fetchUsername(userId)
-                    userScores.add(UserScore(userId, username, score))
+                    val updatedUserScore = UserScore.createOrUpdate(
+                        userScoresMap[userId],
+                        userId,
+                        username,
+                        score
+                    )
+                    userScoresMap[userId] = updatedUserScore
                 }
             }
         }
+        val userScores = userScoresMap.values.toList()
         userScores.forEach { (username, score) ->
             logger.info("Filtered message from user $username with score: $score")
         }

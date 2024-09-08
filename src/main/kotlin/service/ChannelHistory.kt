@@ -85,8 +85,8 @@ class ChannelHistory {
             }
         }
         val userScores = userScoresMap.values.toList()
-        userScores.forEach { (username, score) ->
-            logger.info("Filtered message from user $username with score: $score")
+        userScores.forEach { userScore ->
+            logger.info("User ${userScore.username} (ID: ${userScore.userId}) highest score: ${userScore.score}")
         }
 
         return highScoreSorting.sortHighScore(userScores)

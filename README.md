@@ -3,14 +3,15 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-The WhenTakenSlackBot is a Kotlin-based application that interacts with the Slack API to retrieve messages from a specified channel, filter these messages for user scores, sort the scores, and post the top scores back to the Slack channel. The app is scheduled to run at specific intervals using Quartz Scheduler.
+The WhenTakenSlackBot is a Kotlin-based application that interacts with the Slack API to retrieve messages from a specified channel, filter these messages for user scores, sort the scores, and post the top scores back to the Slack channel. The app is scheduled to run at specific intervals using Quartz Scheduler with a Cron job.
 
 
 
 <!-- GETTING STARTED -->
 ## Getting Started
+There are two ways to run the application. You can either clone the repo locally and run it, or pull the image from Dockerhub and run it in a container.
 
-To get a local copy up and running follow these steps.
+To get a local copy up and running follow these steps:
 
 ### Installation
 
@@ -32,40 +33,46 @@ To get a local copy up and running follow these steps.
    gradle build
    gradle run
    ```
-     
 
+To run the the image wih Docker container you can pull it from here: 
+https://hub.docker.com/r/vikl5/whentaken-slack-bot
+The docker image has two mandatory environment variables for it to be able to run, SLACK_BOT_TOKEN and CHANNEL_ID, and the following environment variables are optional to provide. Meaning they will use default values from the code if they are not provided.
+
+- POSTING_TIME //Uses 24 hour format and not AM or PM.
+- START_READING //Uses 24 hour format and not AM or PM.
+- END_READING //Uses 24 hour format and not AM or PM.
+- TIMEZONE //Your timezone, e.g. Europe/Paris. Uses the Kotlin TimeZone library
+- CRON_SCHEDULE //Only valid Cron jobs, see [CronGuru](https://crontab.guru/)
+```sh
+docker run \
+  -e SLACK_BOT_TOKEN="YOUR_TOKEN_HERE" \
+  -e CHANNEL_ID="=YOUR_CHANNEL_ID_HERE" \
+  -e TIMEZONE="your/timezone" \
+  -e POSTING_TIME="10:00" \
+  -e START_READING_TIME="06:00" \
+  -e END_READING_TIME="10:00" \
+  -e CRON_SCHEDULE="0 0 10 ? * MON-FRI" \
+  whentaken-slack-bot
+```
    
-
-
-
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
+Before the application can be run you need to create a new app in your Slack workspace [here](https://api.slack.com/apps/).
+Go to OAuth and Permissions and add the following scopes:
+
+      - channels:history
+      - channels:read
+      - chat:write
+      - chat:write.customize
+      - groups:history
+      - users:read
+Then click on Install App in the sidebar and install it to your workspace.
+Next go to your Slack channel and copy the channel ID and add it to the env variable.
+Now all you need is to invite the bot to your channel and after that give it a test run!
+
 <!--Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.-->
-To change the time for the Quartz job to begin, you can change the ```.withSchedule(CronScheduleBuilder.dailyAtHourAndMinute(14, 10))``` with your desired timestamp.
-If you want to change the time for when the bot should start/stop reading messages and start posting messages edit the Int values in the DateTimeToUnixConverter class.
-
-The main functionality of the app is encapsulated in the following classes:
-ChannelHistory
-
-    readBetweenTimeStamps(): Reads messages between specified timestamps.
-    filterMessages(): Filters and processes messages to extract scores.
-    getSortedScores(): Retrieves the sorted scores.
-
-HighScoreSorting
-
-    sortHighScore(): Sorts the scores in descending order.
-
-ScheduleMessage
-
-    postOnSchedule(): Posts the sorted scores back to the Slack channel.
-    buildMessageText(): Constructs the message text with top scores and tags the user with the highest score.
-
-MessageJob
-
-    Implements Quartz's Job interface to execute the scheduled task.
-
 
 
 <!-- CONTRIBUTING -->

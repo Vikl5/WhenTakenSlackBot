@@ -46,7 +46,7 @@ The docker image has two mandatory environment variables for it to be able to ru
 ```sh
 docker run \
   -e SLACK_BOT_TOKEN="YOUR_TOKEN_HERE" \
-  -e CHANNEL_ID="=YOUR_CHANNEL_ID_HERE" \
+  -e CHANNEL_ID="YOUR_CHANNEL_ID_HERE" \
   -e TIMEZONE="your/timezone" \
   -e POSTING_TIME="10:00" \
   -e START_READING_TIME="06:00" \

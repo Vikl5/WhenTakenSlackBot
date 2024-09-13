@@ -46,7 +46,7 @@ class ScheduleMessage {
             |Top Scores:
             |$topScores
             |
-            |:flowersmile:Congratulations to the top scorer of today: $highestScoreUserId! :tada: :tada: """.trimMargin()
+            |:tada: :tada: Congratulations to the top scorer of today: $highestScoreUserId! :tada: :tada: """.trimMargin()
     }
 
 }
